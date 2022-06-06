@@ -15,25 +15,26 @@ const MiniMap = () => {
 
   const [selectedStation, setSelectedStation] = useState(null);
 
-//   useEffect =
-//     (() => {
-//       const listener = (e) => {
-//         if (e.key === "Escape") {
-//           setSelectedStation(null);
-//         }
-//       };
-//       window.addEventListener("keydown", listener);
-//       return () => {
-//         window.removeEventListener("keydown", listener);
-//       };
-//     },
-//     []);
+  //   useEffect =
+  //     (() => {
+  //       const listener = (e) => {
+  //         if (e.key === "Escape") {
+  //           setSelectedStation(null);
+  //         }
+  //       };
+  //       window.addEventListener("keydown", listener);
+  //       return () => {
+  //         window.removeEventListener("keydown", listener);
+  //       };
+  //     },
+  //     []);
 
   return (
     <div>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken="pk.eyJ1IjoicmF0aGV2ZW4iLCJhIjoiY2wzcWltdTQxMGZ4aTNkcWVtcmZ3ODA3eCJ9.Kz57auU7agn-ScTVP65hEw"
+     
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/ratheven/cl421lmz4000x15mh9j544ajb"
         onViewportChange={(viewport) => {
           setViewport(viewport);
@@ -53,7 +54,7 @@ const MiniMap = () => {
                   setSelectedStation(gas);
                 }}
               >
-                gas
+                gazz
               </button>
             </Marker>
           );
@@ -77,11 +78,11 @@ const MiniMap = () => {
     </div>
   );
 
-  //   const GazIcon = styled.button`
-  //     background: none;
-  //     border: none;
-  //     cursor: pointer;
-  //   `;
+  // const GazIcon = styled.button`
+  //   background: none;
+  //   border: none;
+  //   cursor: pointer;
+  // `;
 };
 
 export default MiniMap;

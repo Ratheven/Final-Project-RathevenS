@@ -1,10 +1,11 @@
+import FilterBar from "./FilterBar";
 import MiniMap from "./MiniMap";
-
 
 const Homepage = () => {
   return (
     <>
-    <MiniMap/>
+      <FilterBar />
+      <MiniMap />
     </>
   );
 };
