@@ -1,5 +1,12 @@
+import MiniMap from "./MiniMap";
+
+
 const Homepage = () => {
-  return <div>This is homepage</div>;
+  return (
+    <>
+    <MiniMap/>
+    </>
+  );
 };
 
 export default Homepage;
