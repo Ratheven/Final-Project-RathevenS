@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Shell",
+    "logo": "",
+    "address": "2959 Bedford Montreal, Quebec H9J3S7 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.88395, 45.46663],
+    "review": "",
+    "likes": ""
+  },
+  {
+    "name": "Shell",
+    "logo": "",
+    "address": "3800 Queen Mary Rd, Montreal, Quebec H3V 1H6 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.618, 45.49198],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Ultramaur",
+    "logo": "",
+    "address": "4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.548866, 45.559589],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Ultramaur",
+    "logo": "",
+    "address": "9191 Cavendish Blvd, Montreal, Quebec H4T 1M8 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.69146, 45.4919],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Esso",
+    "logo": "",
+    "address": "5701 Trans-Canada Hwy, Pointe-Claire, Quebec H9R 5E8 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.82116, 45.46929],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Esso",
+    "logo": "",
+    "address": "9187 Bd de l'Acadie, Montréal, QC H4N 3K1 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.65556, 45.53304],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Couche-Tard",
+    "logo": "",
+    "address": "7111 Boul Métropolitain E, Anjou, QC H1J 1J6 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.572052, 45.599171],
+    "likes": "",
+    "review": ""
+  },
+  {
+    "name": "Couche-Tard",
+    "logo": "",
+    "address": "12200 Boul Henri-Bourassa E, Montréal, QC H1C 1S9 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.52732, 45.65657],
+    "likes": "",
+    "review": ""
+  }
+]

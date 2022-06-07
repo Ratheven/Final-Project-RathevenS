@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Authentication from "./Authentication";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
-import Homepage from "./Homepage";
+import Homepage from "./homepage/Homepage";
 
 function App() {
   return (

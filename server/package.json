@@ -4,13 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "file-system": "^2.2.2",
     "mongodb": "^4.6.0",
+    "morgan": "^1.10.0",
     "node": "^17.7.2",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "path": "^0.12.7",
+    "react-router-dom": "^6.3.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "nodemon index.js"
-   
+    "start": "node index.js",
+    "dev:backend": "nodemon index.js"
   }
 }

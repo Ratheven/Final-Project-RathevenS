@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import gasStation from "./data";
-import gasimg from "./";
+import gasStation from "../data";
+import gasimg from "..";
 import styled from "styled-components";
 
-const MiniMap = () => {
+const MiniMap = ({gasStation}) => {
   const [viewport, setViewport] = useState({
     latitude: 45.508888,
     longitude: -73.561668,
