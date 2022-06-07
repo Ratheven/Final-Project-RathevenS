@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import gasStation from "../data";
+import { NavLink } from "react-router-dom";
+
 import gasimg from "..";
 import styled from "styled-components";
 
-const MiniMap = ({gasStation}) => {
+const MiniMap = ({ gasStation }) => {
   const [viewport, setViewport] = useState({
     latitude: 45.508888,
     longitude: -73.561668,
     width: "100vw",
     height: "50vh",
-    zoom: 10,
+    zoom: 9.5,
   });
 
   const [selectedStation, setSelectedStation] = useState(null);
@@ -33,7 +34,6 @@ const MiniMap = ({gasStation}) => {
     <div>
       <ReactMapGL
         {...viewport}
-     
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/ratheven/cl421lmz4000x15mh9j544ajb"
         onViewportChange={(viewport) => {
@@ -48,14 +48,14 @@ const MiniMap = ({gasStation}) => {
               latitude={gas.cordinates[1]}
               longitude={gas.cordinates[0]}
             >
-              <button
+              <Gaz
                 onClick={(e) => {
                   e.preventDefault();
                   setSelectedStation(gas);
                 }}
               >
                 gazz
-              </button>
+              </Gaz>
             </Marker>
           );
         })}
@@ -69,7 +69,9 @@ const MiniMap = ({gasStation}) => {
             }}
           >
             <div>
-              <h2>{selectedStation.name}</h2>
+              <NavLink to={`/gasStation/${selectedStation._id}`}>
+                <h2>{selectedStation.name}</h2>
+              </NavLink>
               <h3>{selectedStation.address}</h3>
             </div>
           </Popup>
@@ -77,12 +79,11 @@ const MiniMap = ({gasStation}) => {
       </ReactMapGL>
     </div>
   );
-
-  // const GazIcon = styled.button`
-  //   background: none;
-  //   border: none;
-  //   cursor: pointer;
-  // `;
 };
+const Gaz = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
 
 export default MiniMap;
