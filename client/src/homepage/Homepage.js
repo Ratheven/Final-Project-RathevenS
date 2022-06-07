@@ -5,8 +5,8 @@ import MiniMap from "./MiniMap";
 const Homepage = () => {
   const [gasStation, setGasStation] = useState();
   const [status, setStatus] = useState("loading");
-  const [filter, setFilter] = useState();
-  // console.log(filter,"filtere")
+  const [filter, setFilter] = useState("Reset");
+  console.log(filter,"filtere")
 
   useEffect(() => {
     fetch(`/api/gasStation?filter=${filter}`)
@@ -16,7 +16,7 @@ const Homepage = () => {
         setGasStation(data.data);
         setStatus("idle");
       });
-  }, [filter?filter:null]);
+  }, [filter]);
 
   return (
     <>
