@@ -9,17 +9,19 @@ const options = {
   useUnifiedTopology: true,
 };
 
-const batchImport = async (req, res) => {
+const batchImport = async () => {
   const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
     const db = client.db("GasStation");
 
-    await db.collection("StationData").insertMany(data);
+    const result = await db.collection("StationData").insertMany(data);
 
-    res.status(200).json({ status: 200, message: "done" });
+    if (result) {
+      console.log("success");
+    }
   } catch (err) {
-    res.status(400).json({ status: 400, message: err.message });
+    console.log(err.message);
   }
   client.close();
 };

@@ -46,7 +46,6 @@ const getGasStation = async (req, res) => {
 ////////////////////get single gasStation///////////////////////
 const getSingleGasStation = async (req, res) => {
   const { id } = req.params;
-
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   try {
@@ -54,7 +53,6 @@ const getSingleGasStation = async (req, res) => {
     const data = await db
       .collection("StationData")
       .findOne({ _id: ObjectId(`${id}`) });
-    console.log(data, "this is the data");
 
     res.status(200).json({
       status: 200,
