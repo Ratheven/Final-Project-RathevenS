@@ -4,18 +4,18 @@ const express = require("express");
 // const app = express();
 const morgan = require("morgan");
 
-const { getGasStation } = require("./handlers");
+const { getGasStation, getSingleGasStation } = require("./handlers");
 
 // const PORT = 8000;
 
 express()
- 
-
   .use(morgan("tiny"))
   .use(express.json())
   .use(express.static("public"))
 
   .get("/api/gasStation", getGasStation)
+
+  .get("/api/gasStation/:id", getSingleGasStation)
 
   .get("*", (req, res) => {
     res.status(404).json({
