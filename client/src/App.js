@@ -5,6 +5,7 @@ import GasStationDetail from "./gasStationDetail/GasStationDetail";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
 import Homepage from "./homepage/Homepage";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
 
         <Route path="/gasStation/:id">
           <GasStationDetail  />
+        </Route>
+        <Route path="/profile">
+          <Profile/>
         </Route>
       </Switch>
     </BrowserRouter>

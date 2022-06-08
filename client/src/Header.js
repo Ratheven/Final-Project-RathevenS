@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   return (
@@ -8,9 +10,10 @@ const Header = () => {
         <div>This is the Logo</div>
       </Link>
       <div>
-        <Link to={"/login"}>
-          <div>Login/signup</div>
-        </Link>
+        
+          <LoginButton/>
+          <LogoutButton/>
+       
       </div>
     </HeaderContainer>
   );
