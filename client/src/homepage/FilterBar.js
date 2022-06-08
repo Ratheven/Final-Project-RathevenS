@@ -5,17 +5,21 @@ const FilterBar = ({ setFilter }) => {
         <input
           type="radio"
           name="gas"
-          value="shell"
+          value="Shell"
           onChange={(e) => setFilter(e.target.value)}
         />
         <label>Shell</label>
+
+
         <input
           type="radio"
           name="gas"
-          value="ultramaur"
+          value="Ultramaur"
           onChange={(e) => setFilter(e.target.value)}
         />
         <label>Ultramaur</label>
+
+        
         <input
           type="radio"
           name="gas"
@@ -27,7 +31,6 @@ const FilterBar = ({ setFilter }) => {
           type="radio"
           name="gas"
           value="Couche-Tard"
-          
           onChange={(e) => setFilter(e.target.value)}
         />
         <label>Couche-Tard</label>
