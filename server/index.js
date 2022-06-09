@@ -6,6 +6,10 @@ const morgan = require("morgan");
 
 const { getGasStation, getSingleGasStation } = require("./handlers");
 
+const { createUser } = require("./handlers/users/createUser");
+const { getUser } = require("./handlers/users/getUser");
+const { updateUser } = require("./handlers/users/updateUser");
+
 // const PORT = 8000;
 
 express()
@@ -16,6 +20,10 @@ express()
   .get("/api/gasStation", getGasStation)
 
   .get("/api/gasStation/:id", getSingleGasStation)
+
+  .post("/user", createUser)
+  .get("/user/:sub", getUser)
+  .patch("/user/:sub", updateUser)
 
   .get("*", (req, res) => {
     res.status(404).json({
