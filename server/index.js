@@ -4,7 +4,13 @@ const express = require("express");
 // const app = express();
 const morgan = require("morgan");
 
-const { getGasStation, getSingleGasStation } = require("./handlers");
+const {
+  getGasStation,
+  getSingleGasStation,
+  postReview,
+  deletePost,
+  getBestPrice,
+} = require("./handlers");
 
 const { createUser } = require("./handlers/users/createUser");
 const { getUser } = require("./handlers/users/getUser");
@@ -20,6 +26,11 @@ express()
   .get("/api/gasStation", getGasStation)
 
   .get("/api/gasStation/:id", getSingleGasStation)
+
+  .post("/post/createPost", postReview)
+  .delete("/post/delete/:id", deletePost)
+
+  .post("/bestPrice/:id", getBestPrice)
 
   .post("/user", createUser)
   .get("/user/:sub", getUser)
