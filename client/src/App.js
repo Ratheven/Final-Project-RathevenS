@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Authentication from "./authentication/Authentication";
 import GasStationDetail from "./gasStationDetail/GasStationDetail";
 import GlobalStyles from "./GlobalStyles";
-import Header from "./Header";
+import Header from "./homepage/header/Header";
 import Homepage from "./homepage/Homepage";
 import Profile from "./Profile";
 

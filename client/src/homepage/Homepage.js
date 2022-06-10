@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import FilterBar from "./FilterBar";
 import MiniMap from "./MiniMap";
+import BestPrice from "./BestPrice";
 
 const Homepage = () => {
   const [gasStation, setGasStation] = useState();
   const [status, setStatus] = useState("loading");
   const [filter, setFilter] = useState("Reset");
-  console.log(filter,"filtere")
 
   useEffect(() => {
     fetch(`/api/gasStation?filter=${filter}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setGasStation(data.data);
         setStatus("idle");
       });
@@ -24,6 +23,7 @@ const Homepage = () => {
         <>
           <FilterBar setFilter={setFilter} />
           <MiniMap gasStation={gasStation} />
+          {/* <BestPrice /> */}
         </>
       )}
     </>
