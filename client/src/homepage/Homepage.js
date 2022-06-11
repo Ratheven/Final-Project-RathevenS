@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FilterBar from "./FilterBar";
 import MiniMap from "./MiniMap";
 import BestPrice from "./BestPrice";
+import styled from "styled-components";
 
 const Homepage = () => {
   const [gasStation, setGasStation] = useState();
@@ -20,14 +21,16 @@ const Homepage = () => {
   return (
     <>
       {status === "idle" && (
-        <>
-          <FilterBar setFilter={setFilter} />
+        <Wrapper>
           <MiniMap gasStation={gasStation} />
-          {/* <BestPrice /> */}
-        </>
+          <FilterBar setFilter={setFilter} />
+          
+        </Wrapper>
       )}
     </>
   );
 };
-
+const Wrapper = styled.div`
+display: flex;
+`
 export default Homepage;
