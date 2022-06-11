@@ -142,6 +142,7 @@ const deletePost = async (req, res) => {
   }
 };
 
+///////////////////update gas price/////////////
 const getBestPrice = async (res, req) => {
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();

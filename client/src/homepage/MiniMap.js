@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { NavLink } from "react-router-dom";
 
-import gasimg from "..";
+// import gasimg from "."
 import styled from "styled-components";
 
 const MiniMap = ({ gasStation }) => {
   const [viewport, setViewport] = useState({
     latitude: 45.508888,
     longitude: -73.561668,
-    width: "100vw",
-    height: "50vh",
-    zoom: 9.5,
+    width: "80vw",
+    height: "90vh",
+    zoom: 8.7,
   });
 
   const [selectedStation, setSelectedStation] = useState(null);
@@ -42,6 +42,7 @@ const MiniMap = ({ gasStation }) => {
       >
         {gasStation.map((gas, index) => {
           //   console.log(gas.cordinates[1], "this is the gas station");
+          console.log(gas, "this is gas");
           return (
             <Marker
               key={index}
@@ -54,7 +55,21 @@ const MiniMap = ({ gasStation }) => {
                   setSelectedStation(gas);
                 }}
               >
-                gazz
+                {/* {if(gas.name=== "Couche-Tard"){
+                  return(
+
+                    <img src="/asset/coucheTard.png"/>
+                  )
+                }} */}
+                {gas.name === "Couche-Tard" ? (
+                  <Logo src="/asset/coucheTard.png" />
+                ) : gas.name === "Esso" ? (
+                  <Logo src="/asset/esso.jpg" />
+                ) : gas.name === "Ultramar" ? (
+                  <Logo src="/asset/ultramar.png" />
+                ) : gas.name === "Shell" ? (
+                  <Logo src="/asset/shell.jpg" />
+                ) : null}
               </Gaz>
             </Marker>
           );
@@ -69,10 +84,26 @@ const MiniMap = ({ gasStation }) => {
             }}
           >
             <div>
-              <NavLink to={`/gasStation/${selectedStation._id}`}>
-                <h2>{selectedStation.name}</h2>
-              </NavLink>
-              <h3>{selectedStation.address}</h3>
+              <PopupContainer>
+                {selectedStation.name === "Couche-Tard" ? (
+                  <Logo src="/asset/coucheTard.png" />
+                ) : selectedStation.name === "Esso" ? (
+                  <Logo src="/asset/esso.jpg" />
+                ) : selectedStation.name === "Ultramar" ? (
+                  <Logo src="/asset/ultramar.png" />
+                ) : selectedStation.name === "Shell" ? (
+                  <Logo src="/asset/shell.jpg" />
+                ) : null}
+                <NavLink to={`/gasStation/${selectedStation._id}`}>
+                  <StationName>{selectedStation.name}</StationName>
+                </NavLink>
+              </PopupContainer>
+
+              <span>
+                Address:
+                <p>{selectedStation.address}</p>
+                <p>{selectedStation.gasPrice}</p>
+              </span>
             </div>
           </Popup>
         )}
@@ -84,6 +115,19 @@ const Gaz = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+`;
+
+const Logo = styled.img`
+  width: 20px;
+  border-radius: 20px;
+`;
+
+const PopupContainer = styled.div`
+  display: flex;
+`;
+
+const StationName = styled.h2`
+  margin-left: 10px;
 `;
 
 export default MiniMap;
