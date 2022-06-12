@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   // console.log(user, "this is the user");
 
   return (

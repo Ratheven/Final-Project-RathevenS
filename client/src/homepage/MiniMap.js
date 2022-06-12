@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { NavLink } from "react-router-dom";
-
-// import gasimg from "."
 import styled from "styled-components";
 
 const MiniMap = ({ gasStation }) => {
@@ -42,7 +40,7 @@ const MiniMap = ({ gasStation }) => {
       >
         {gasStation.map((gas, index) => {
           //   console.log(gas.cordinates[1], "this is the gas station");
-          console.log(gas, "this is gas");
+          // console.log(gas, "this is gas");
           return (
             <Marker
               key={index}
