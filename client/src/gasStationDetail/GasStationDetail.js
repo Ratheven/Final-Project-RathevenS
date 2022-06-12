@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import styled from "styled-components";
@@ -8,11 +8,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UpdateGas from "./UpdateGas";
 
 const GasStationDetail = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const { id } = useParams();
   const [selectedStation, setSelectedStation] = useState();
   const [status, setStatus] = useState("loading");
-  const [like, setLike] = useState();
   const [posted, setPosted] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const GasStationDetail = () => {
           // console.log(data);
           setSelectedStation(data.data);
           setStatus("idle");
-          setLike(data.data.likes);
         });
     }
   }, [posted]);
@@ -33,45 +31,83 @@ const GasStationDetail = () => {
       {status === "loading" ? (
         <CircularProgress />
       ) : (
-        <>
-          <Logo src={selectedStation.logo} />
-          <p>{selectedStation.name}</p>
-          <p>{selectedStation.address}</p>
-          <p>{selectedStation.gasPrice}</p>
-          {isAuthenticated && <UpdateGas id={id}/>}
-          <button
-            onClick={(e) => {
-              setLike(like + 1);
-            }}
-          >
-            like
-          </button>{" "}
-          <span>{like}</span>
+        <DetailContainer>
+          <LogoName>{selectedStation.name}</LogoName>
+          <DetailWrapper>
+            <div>
+              <p>Address:{selectedStation.address}</p>
+              <p>{selectedStation.gasPrice}</p>
+              {isAuthenticated && <UpdateGas id={id} />}
+            </div>
+            <div>
+              <Logo src={selectedStation.logo} />
+            </div>
+          </DetailWrapper>
           <div>
-            <GasStationPost id={id} setPosted={setPosted} />
-            {selectedStation.review.map((post) => {
+            {isAuthenticated && (
+              <GasStationPost id={id} setPosted={setPosted} />
+            )}
+            {selectedStation.review.map((post, index) => {
               return (
-                <Wrapper>
-                  {/* if the user name from auth o match post.displayname render the delet button */}
+                <Container key={index}>
                   <DeletPost _id={id} id={post.id} setPosted={setPosted} />
-                  <p>{post.displayName}</p>
-                  <p>{post.posted}</p>
+                  <Wrapper>
+                    {/* if the user name from auth o match post.displayname render the delet button */}
+                    <ImgNameWrapper>
+                      <AvatarImg src={post.displayPic} />
+                    </ImgNameWrapper>
+                    <div>
+                      <DisplayName>{post.displayName}</DisplayName>
+                      <Date>{post.posted}</Date>
+                    </div>
+                  </Wrapper>
+                  <p>Rating: {post.stars}</p>
                   <p>{post.post}</p>
-                </Wrapper>
+                </Container>
               );
             })}
           </div>
-        </>
+        </DetailContainer>
       )}
     </div>
   );
 };
-
 const Wrapper = styled.div`
+  display: flex;
+`;
+const Container = styled.div`
   border: 1px solid black;
 `;
+const ImgNameWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const Date = styled.span`
+  padding-left: 10px;
+`;
+const DisplayName = styled.span`
+  font-weight: bold;
+  padding-right: 15px;
+`;
+const AvatarImg = styled.img`
+  border-radius: 50%;
+  width: 60px;
+`;
+
 const Logo = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 35vw;
+  height: 35vh;
+`;
+
+const LogoName = styled.h1`
+  font-size: 80px;
+`;
+const DetailContainer = styled.div`
+  width: 70vw;
+  justify-content: center;
+`;
+
+const DetailWrapper = styled.div`
+  display: flex;
 `;
 export default GasStationDetail;

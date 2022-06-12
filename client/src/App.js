@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
 import Authentication from "./authentication/Authentication";
 import GasStationDetail from "./gasStationDetail/GasStationDetail";
 import GlobalStyles from "./GlobalStyles";

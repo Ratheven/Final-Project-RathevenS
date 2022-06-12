@@ -28,7 +28,7 @@ export default createGlobalStyle`
     input, button, select, option,
     h1, h2, h3, h4, h5, h6, p,
     text {
-        font-family: sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     html, body {
@@ -79,4 +79,4 @@ export default createGlobalStyle`
         content: '';
         content: none;
     }
-`
+`;

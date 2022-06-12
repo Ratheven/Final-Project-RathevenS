@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import FilterBar from "./FilterBar";
 import MiniMap from "./MiniMap";
-import BestPrice from "./BestPrice";
 import styled from "styled-components";
 
 const Homepage = () => {
