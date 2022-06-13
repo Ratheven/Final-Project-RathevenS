@@ -1,17 +1,17 @@
 import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const MiniMap = ({ gasStation }) => {
   const [viewport, setViewport] = useState({
     latitude: 45.508888,
     longitude: -73.561668,
     width: "80vw",
-    height: "90vh",
+    height: "89.8vh",
     zoom: 8.7,
   });
-
+  let history = useHistory();
   const [selectedStation, setSelectedStation] = useState(null);
 
   //   useEffect =
@@ -82,7 +82,7 @@ const MiniMap = ({ gasStation }) => {
             }}
           >
             <div>
-              <PopupContainer>
+              <PopupHeader>
                 {selectedStation.name === "Couche-Tard" ? (
                   <Logo src="/asset/coucheTard.png" />
                 ) : selectedStation.name === "Esso" ? (
@@ -92,16 +92,33 @@ const MiniMap = ({ gasStation }) => {
                 ) : selectedStation.name === "Shell" ? (
                   <Logo src="/asset/shell.jpg" />
                 ) : null}
-                <NavLink to={`/gasStation/${selectedStation._id}`}>
+                
                   <StationName>{selectedStation.name}</StationName>
-                </NavLink>
-              </PopupContainer>
-
-              <span>
-                Address:
-                <p>{selectedStation.address}</p>
-                <p>{selectedStation.gasPrice}</p>
-              </span>
+              
+              </PopupHeader>
+              {console.log(selectedStation, "this is sele")}
+              <div>
+                <KeyValue>
+                  <KeyWord>Address: </KeyWord>
+                  {selectedStation.address}
+                </KeyValue>
+                <KeyValue>
+                  <KeyWord>Gas Price: </KeyWord>
+                  {selectedStation.gasPrice}
+                </KeyValue>
+              </div>
+              <PopupButton>
+                <Button onClick={() =>
+                    history.push(`/gasStation/${selectedStation._id}`)
+                  }>Update Gas Price</Button>
+                <Button
+                  onClick={() =>
+                    history.push(`/gasStation/${selectedStation._id}`)
+                  }
+                >
+                  Leave a Review
+                </Button>
+              </PopupButton>
             </div>
           </Popup>
         )}
@@ -109,6 +126,32 @@ const MiniMap = ({ gasStation }) => {
     </div>
   );
 };
+const Button = styled.button`
+width: 50%;
+border: none;
+border: 1px solid #161b21;
+background: #92b5bf;
+  color: #161b21;
+font-size: 1rem;
+height: 2.3rem;
+transition: all 300ms ease-in-out;
+  cursor: pointer;
+  padding: 0 20px;
+  &:hover {
+    background-color: #ffffff;
+    color: #00515c;
+    border: 1px solid #161b21;
+  }
+`
+const PopupButton = styled.div`
+ 
+`;
+const KeyValue = styled.p`
+  padding: 10px 0 10px 0;
+`;
+const KeyWord = styled.span`
+  font-weight: bold;
+`;
 const Gaz = styled.button`
   background: none;
   border: none;
@@ -116,16 +159,20 @@ const Gaz = styled.button`
 `;
 
 const Logo = styled.img`
-  width: 20px;
+  width: 30px;
   border-radius: 20px;
 `;
 
-const PopupContainer = styled.div`
+const PopupHeader = styled.div`
   display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
 `;
 
 const StationName = styled.h2`
   margin-left: 10px;
+  font-size: 30px;
 `;
 
 export default MiniMap;

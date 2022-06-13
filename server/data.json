@@ -5,17 +5,20 @@
     "address": "2959 Bedford Montreal, Quebec H9J3S7 ",
     "gasPrice": "1.50",
     "cordinates": [-73.88395, 45.46663],
-    "likes": 5,
     "review": [
       {
+        "displayPic": "/asset/profilePic/bush.jpeg",
         "displayName": "Palmerston",
         "posted": "jan 19 2010",
-        "post": "The staff are so nice. "
+        "post": "The staff are so nice. ",
+        "stars": 4
       },
       {
+        "displayPic": "/asset/profilePic/car.jpeg",
         "displayName": "Rony",
         "posted": "jan 06 2018",
-        "post": "The staff are so nice. "
+        "post": "The staff are so nice. ",
+        "stars": 4
       }
     ]
   },
@@ -25,22 +28,27 @@
     "address": "3800 Queen Mary Rd, Montreal, Quebec H3V 1H6 ",
     "gasPrice": "1.50",
     "cordinates": [-73.618, 45.49198],
-    "likes": 11,
     "review": [
       {
+        "displayPic": "/asset/profilePic/catFace.jpeg",
         "displayName": "Joe",
         "posted": "Feb 12 2020",
-        "post": "The staff are so nice. "
+        "post": "The staff are so nice. ",
+        "stars": 5
       },
       {
+        "displayPic": "/asset/profilePic/guyGlasses.jpeg",
         "displayName": "Brand879",
         "posted": "May 09 2021",
-        "post": "well organized. "
+        "post": "well organized. ",
+        "stars": 4
       },
       {
+        "displayPic": "/asset/profilePic/ichigo.jpeg",
         "displayName": "Jeramy",
         "posted": "Dec 25 2022",
-        "post": "I loved the smell of Gazzz. "
+        "post": "I loved the smell of Gazzz. ",
+        "stars": 4
       }
     ]
   },
@@ -50,42 +58,51 @@
     "address": "4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3 ",
     "gasPrice": "1.50",
     "cordinates": [-73.548866, 45.559589],
-    "likes": 0,
     "review": [
       {
+        "displayPic": "/asset/profilePic/monkey.jpeg",
         "displayName": "MaWillywonkar0y",
         "posted": "Feb 12 2020",
-        "post": "The staff rip me off. "
+        "post": "The staff rip me off. ",
+        "stars": 2
       },
       {
+        "displayPic": "/asset/profilePic/neck.jpeg",
         "displayName": "Robert",
         "posted": "Oct 9 2021",
-        "post": "The place is falling of. "
+        "post": "The place is falling of. ",
+        "stars": 1
       },
       {
+        "displayPic": "/asset/profilePic/bush.jpeg",
         "displayName": "Jeramy",
         "posted": "Dec 01 2022",
-        "post": "Just like any other gas station, pretty decent"
+        "post": "Just like any other gas station, pretty decent",
+        "stars": 2
       }
     ]
   },
   {
+    "displayPic": "/asset/profilePic/car.jpeg",
     "name": "Ultramar",
     "logo": "/asset/ultramar.png",
     "address": "9191 Cavendish Blvd, Montreal, Quebec H4T 1M8 ",
     "gasPrice": "1.50",
     "cordinates": [-73.69146, 45.4919],
-    "likes": 14,
     "review": [
       {
+        "displayPic": "/asset/profilePic/catFace.jpeg",
         "displayName": "Palmerston",
         "posted": "jan 19 2010",
-        "post": "Nice place for filling gasoline and good prices"
+        "post": "Nice place for filling gasoline and good prices",
+        "stars": 4
       },
       {
+        "displayPic": "/asset/profilePic/guyGlasses.jpeg",
         "displayName": "Rony",
         "posted": "jan 6 2018",
-        "post": "The staff are so nice. "
+        "post": "The staff are so nice. ",
+        "stars": 5
       }
     ]
   },
@@ -95,7 +112,6 @@
     "address": "5701 Trans-Canada Hwy, Pointe-Claire, Quebec H9R 5E8 ",
     "gasPrice": "1.50",
     "cordinates": [-73.82116, 45.46929],
-    "likes": 23,
     "review": []
   },
   {
@@ -104,27 +120,34 @@
     "address": "9187 Bd de l'Acadie, Montréal, QC H4N 3K1 ",
     "gasPrice": "1.50",
     "cordinates": [-73.65556, 45.53304],
-    "likes": 14,
     "review": [
       {
+        "displayPic": "/asset/profilePic/ichigo.jpeg",
         "displayName": "Rony",
         "posted": "jan 19 2017",
-        "post": "The staff are so nice. "
+        "post": "The staff are so nice. ",
+        "stars": 5
       },
       {
+        "displayPic": "/asset/profilePic/monkey.jpeg",
         "displayName": "Felix",
         "posted": "Feb 9 2017",
-        "post": "Good service friendly staff"
+        "post": "Good service friendly staff",
+        "stars": 4
       },
       {
+        "displayPic": "/asset/profilePic/neck.jpeg",
         "displayName": "Enoch",
         "posted": "jan 19 2018",
-        "post": "It's a normal gas place "
+        "post": "It's a normal gas place ",
+        "stars": 4
       },
       {
+        "displayPic": "/asset/profilePic/bush.jpeg",
         "displayName": "Miu",
         "posted": "Sept 14 2018",
-        "post": "They can try to put some effort and clean the machines. Inside is nice and has most things you need."
+        "post": "They can try to put some effort and clean the machines. Inside is nice and has most things you need.",
+        "stars": 3
       }
     ]
   },
@@ -134,12 +157,13 @@
     "address": "7111 Boul Métropolitain E, Anjou, QC H1J 1J6 ",
     "gasPrice": "1.40",
     "cordinates": [-73.572052, 45.599171],
-    "likes": 2,
     "review": [
       {
+        "displayPic": "/asset/profilePic/bush.jpeg",
         "displayName": "Palmerston",
         "posted": "jan 06 2018",
-        "post": "Beautiful location, but terrible management and customer service. You basically cannot pay at the pump and must go inside. What for? Sales on other knick-knacks? Very much not inclined to buy anything else when you are 5th in line just to prepay for gas. "
+        "post": "Beautiful location, but terrible management and customer service. You basically cannot pay at the pump and must go inside. What for? Sales on other knick-knacks? Very much not inclined to buy anything else when you are 5th in line just to prepay for gas. ",
+        "stars": 2
       }
     ]
   },
@@ -149,12 +173,13 @@
     "address": "12200 Boul Henri-Bourassa E, Montréal, QC H1C 1S9 ",
     "gasPrice": "1.60",
     "cordinates": [-73.52732, 45.65657],
-    "likes": 1,
     "review": [
       {
+        "displayPic": "/asset/profilePic/monkey.jpeg",
         "displayName": "Ravi",
         "posted": "Mar 16 2022",
-        "post": "Nice and clean newly renovated gas station with many pumps. The only bad thing about it is the price of gas but gas is expensive everywhere!!"
+        "post": "Nice and clean newly renovated gas station with many pumps. The only bad thing about it is the price of gas but gas is expensive everywhere!!",
+        "stars": 4
       }
     ]
   }
