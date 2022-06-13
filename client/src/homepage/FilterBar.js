@@ -4,7 +4,7 @@ const FilterBar = ({ setFilter }) => {
   return (
     <>
       <FilteredForm>
-        <Filter>Filter</Filter>
+        <Filter>Filter by Company </Filter>
         <InputWrapper>
           <input
             type="radio"
@@ -59,10 +59,10 @@ const FilterBar = ({ setFilter }) => {
 };
 
 const Filter = styled.h3`
-display: flex;
-justify-content: center;
-
-`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+`;
 
 const FilteredForm = styled.form`
   margin: 20px 0 0 20px;
@@ -81,20 +81,21 @@ const InputWrapper = styled.div`
 const ResetButton = styled.button`
   border: none;
   border-radius: 5px;
-  background: #626fe6;
-  color: #fff;
+
+  background: #92b5bf;
+  color: #161b21;
   text-decoration: none;
   font-size: 1rem;
   height: 2.3rem;
-  margin-left: 30px;
- 
+  margin-right: 20px;
+  margin-left: 20px;
   transition: all 300ms ease-in-out;
   cursor: pointer;
   padding: 0 20px;
   &:hover {
-    background-color: #fff;
-    color: #626fe6;
-    border: 1px solid #626fe6;
+    background-color: #ffffff;
+    color: #00515c;
+    border: 1px solid #161b21;
   }
 `;
 export default FilterBar;

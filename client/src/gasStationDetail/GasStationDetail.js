@@ -6,13 +6,16 @@ import GasStationPost from "./GasStationPost";
 import DeletPost from "./DeletePost";
 import { useAuth0 } from "@auth0/auth0-react";
 import UpdateGas from "./UpdateGas";
+import Star from "./Star";
+import StarRating from "./StarRating";
 
 const GasStationDetail = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const { id } = useParams();
   const [selectedStation, setSelectedStation] = useState();
   const [status, setStatus] = useState("loading");
   const [posted, setPosted] = useState(false);
+  const [rating, setRating] = useState(null);
 
   useEffect(() => {
     if (id) {
@@ -32,38 +35,65 @@ const GasStationDetail = () => {
         <CircularProgress />
       ) : (
         <DetailContainer>
-          <LogoName>{selectedStation.name}</LogoName>
           <DetailWrapper>
-            <div>
-              <p>Address:{selectedStation.address}</p>
-              <p>{selectedStation.gasPrice}</p>
-              {isAuthenticated && <UpdateGas id={id} />}
-            </div>
             <div>
               <Logo src={selectedStation.logo} />
             </div>
+            <GasDescriptionWrapper>
+              <LogoName>{selectedStation.name}</LogoName>
+              <DataWrapper>
+                <SpanKey>Address: </SpanKey>
+                {selectedStation.address}
+              </DataWrapper>
+              <DataWrapper>
+                <SpanKey>Gas Price: </SpanKey>
+                {selectedStation.gasPrice}
+              </DataWrapper>
+              {isAuthenticated && <UpdateGas id={id} />}
+            </GasDescriptionWrapper>
           </DetailWrapper>
+          <StarWrapper>
+            <SpanKey>
+              Rate Your Experience<RequireSpan> (required)</RequireSpan>
+            </SpanKey>
+            <RatingDiv>
+              <StarRating setRating={setRating} rating={rating} />
+            </RatingDiv>
+          </StarWrapper>
+
           <div>
             {isAuthenticated && (
-              <GasStationPost id={id} setPosted={setPosted} />
+              <GasStationPost
+                id={id}
+                setPosted={setPosted}
+                rating={rating}
+                setRating={setRating}
+              />
             )}
+            <Reviews>Recent Reviews</Reviews>
             {selectedStation.review.map((post, index) => {
+              console.log(post, "this is post");
               return (
-                <Container key={index}>
-                  <DeletPost _id={id} id={post.id} setPosted={setPosted} />
-                  <Wrapper>
-                    {/* if the user name from auth o match post.displayname render the delet button */}
-                    <ImgNameWrapper>
-                      <AvatarImg src={post.displayPic} />
-                    </ImgNameWrapper>
-                    <div>
-                      <DisplayName>{post.displayName}</DisplayName>
-                      <Date>{post.posted}</Date>
-                    </div>
-                  </Wrapper>
-                  <p>Rating: {post.stars}</p>
-                  <p>{post.post}</p>
-                </Container>
+                <PostContainer key={index}>
+                  <ReviewHeader>
+                    <Wrapper>
+                      <div>
+                        <AvatarImg src={post.displayPic} />
+                      </div>
+                      <div>
+                        <DisplayName>{post.displayName}</DisplayName>
+                        <Date>{post.posted}</Date>
+                      </div>
+                    </Wrapper>
+                    {post.email === user.email && (
+                      <DeletPost _id={id} id={post.id} setPosted={setPosted} />
+                    )}
+                  </ReviewHeader>
+                 
+                  <Star stars={post.stars} />
+                  <Post>{post.post}</Post>
+
+                </PostContainer>
               );
             })}
           </div>
@@ -72,16 +102,50 @@ const GasStationDetail = () => {
     </div>
   );
 };
+const PostContainer = styled.div`
+border: 1px solid black;
+margin: 10px 0 10px 0;
+border-radius: 17px;
+`
+
+const Post = styled.p`
+margin: 10px 0 10px 0;
+`
+const ReviewHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+`;
 const Wrapper = styled.div`
   display: flex;
 `;
-const Container = styled.div`
-  border: 1px solid black;
+const Reviews = styled.p`
+  margin: 20px 0 10px 0;
+  font-weight: bold;
+  font-size: 13px;
 `;
-const ImgNameWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+const RatingDiv = styled.div`
+  margin: 10px 0 10px 0;
 `;
+const StarWrapper = styled.div`
+  border-bottom: 1px solid lightgrey;
+  margin: 50px 0 50px 0;
+
+`;
+const RequireSpan = styled.span`
+  color: gray;
+  font-size: 13px;
+`;
+const DataWrapper = styled.div`
+  padding-top: 15px;
+`;
+const GasDescriptionWrapper = styled.div`
+  margin: 20px 0 0 20px;
+`;
+const SpanKey = styled.span`
+  font-weight: bold;
+`;
+
 const Date = styled.span`
   padding-left: 10px;
 `;
@@ -95,19 +159,21 @@ const AvatarImg = styled.img`
 `;
 
 const Logo = styled.img`
-  width: 35vw;
+  width: 20vw;
   height: 35vh;
 `;
 
-const LogoName = styled.h1`
-  font-size: 80px;
+const LogoName = styled.h4`
+  font-size: 20px;
 `;
 const DetailContainer = styled.div`
   width: 70vw;
   justify-content: center;
+  margin-left: 15vw;
 `;
 
 const DetailWrapper = styled.div`
   display: flex;
+
 `;
 export default GasStationDetail;

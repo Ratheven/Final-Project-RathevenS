@@ -72,7 +72,8 @@ const getSingleGasStation = async (req, res) => {
 const postReview = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const db = client.db("GasStation");
-  const { _id, displayName, posted, post, id } = req.body;
+  const { _id, displayName, posted, post, id, stars, email, displayPic } =
+    req.body;
 
   try {
     await client.connect();
@@ -87,6 +88,9 @@ const postReview = async (req, res) => {
             displayName: displayName,
             posted: posted,
             post: post,
+            stars: stars,
+            email: email,
+            displayPic: displayPic,
           },
         },
       }

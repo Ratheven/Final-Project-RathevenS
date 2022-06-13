@@ -2,20 +2,23 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+  const { isAuthenticated } = useAuth0();
   return (
     <HeaderContainer>
       <LogoLink to={"/"}>
-        <Logo>This is the Logo</Logo>
+        <Logo src="/asset/logo/gasGuzzler2.PNG"/>
       </LogoLink>
       <div>
         <LoginButton />
         <LogoutButton />
-        <ProfileLink to={"/profile"}>
-          <ProfileButton>Profile</ProfileButton>
-        </ProfileLink>
+        {isAuthenticated && (
+          <ProfileLink to={"/profile"}>
+            <ProfileButton>Profile</ProfileButton>
+          </ProfileLink>
+        )}
       </div>
     </HeaderContainer>
   );
@@ -25,11 +28,16 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: darkblue;
+  background-color: #00515c;
+  height: 58px;
 `;
-const Logo = styled.div`
-  color: white;
-  padding-top: 10px;
+const Logo = styled.img`
+
+ width: 150px;
+ height: 150px;
+ position: absolute;
+ top: -46px;
+ left: 17px;
 `;
 const LogoLink = styled(Link)`
   text-decoration: none;
@@ -41,8 +49,8 @@ const ProfileButton = styled.button`
   border: none;
   border-radius: 5px;
 
-  background: #626fe6;
-  color: #fff;
+  background: #92b5bf;
+  color: #161B21;
   text-decoration: none;
   font-size: 1rem;
   height: 2.3rem;
@@ -52,8 +60,8 @@ const ProfileButton = styled.button`
   cursor: pointer;
   padding: 0 20px;
   &:hover {
-    background-color: #fff;
-    color: #626fe6;
+    background-color: #ffffff;
+    color: #00515c;
   }
 `;
 export default Header;
