@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { Link } from "react-router-dom";
+
 import { useHistory } from "react-router-dom";
 
 const SearchBar = () => {
@@ -69,11 +69,6 @@ const SearchBar = () => {
           </InputDropdown>
         )}
 
-        {/* <DataResult>
-          {gasStation.map((value, index) => {
-            return <div>{value.name}</div>;
-          })}
-        </DataResult> */}
       </Search>
     );
   }
@@ -117,7 +112,7 @@ const SearchInput = styled.div`
   margin-top: 10px;
   display: flex;
 `;
-const DataResult = styled.div``;
+
 
 const SearchIcon = styled.div`
   height: 30px;
