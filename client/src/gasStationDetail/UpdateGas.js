@@ -1,11 +1,11 @@
 import { useState } from "react";
+import styled from "styled-components";
+import { BsPencilFill } from 'react-icons/bs';
 
 const UpdateGas = ({ id, setPosted }) => {
   const [price, setPrice] = useState();
 
   const updatePrice = () => {
-    console.log("kiki", id);
-    console.log(price, "updatedPirce");
     fetch("/bestPrice", {
       method: "PATCH",
       headers: {
@@ -28,15 +28,27 @@ const UpdateGas = ({ id, setPosted }) => {
           updatePrice();
         }}
       >
-        <input
+        <Input
           type="number"
-          placeholder="updateGasPrice"
+          step="0.01"
+          placeholder="Update Gas Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-        ></input>
-        <button type="submit">Post</button>
+        />
+        <Button type="submit"><BsPencilFill/></Button>
       </form>
     </>
   );
 };
+
+const Input = styled.input`
+width: 130px;
+border-radius: 8px;
+margin-top: 8px;
+`
+const Button = styled.button`
+ border: none;
+ background: white;
+`
+
 export default UpdateGas;

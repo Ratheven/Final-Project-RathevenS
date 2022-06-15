@@ -17,7 +17,6 @@ const getGasStation = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("GasStation");
-  console.log(filter, "this is the filter");
 
   try {
     let result;
@@ -31,7 +30,6 @@ const getGasStation = async (req, res) => {
         .toArray();
     }
 
-    // console.log(result, "this i sthe result");
     res.status(200).json({
       status: 200,
       data: result,
@@ -147,17 +145,107 @@ const deletePost = async (req, res) => {
 };
 
 ///////////////////update gas price/////////////
-const getBestPrice = async (res, req) => {
+const updatePrice = async (req, res) => {
+  const { _id, gasPrice } = req.body;
+
+  if (!_id || !gasPrice) {
+    return res
+      .send(400)
+      .json({ status: 400, message: "Missing info", error: true });
+  }
+
+  try {
+    const client = new MongoClient(MONGO_URI, options);
+    await client.connect();
+    const db = client.db("GasStation");
+
+    const queryObj = {
+      _id: ObjectId(_id),
+    };
+
+    const updateObj = {
+      $set: { gasPrice },
+    };
+
+    const updateResult = await db
+      .collection("StationData")
+      .updateOne(queryObj, updateObj);
+
+    const { acknowledged, modifiedCount } = updateResult;
+    console.log(acknowledged, modifiedCount);
+    if (acknowledged && modifiedCount > 0) {
+      return res
+        .status(200)
+        .json({ message: `Updated price for stationID: ${_id}`, data: null });
+    } else {
+      return res
+        .status(400)
+        .json({ message: `Current price is already ${gasPrice} `, data: null });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/////////////////////search Bar/////////////////////
+const getAllGasStation = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("GasStation");
-  const { id } = req.params;
-  console.log("hiiiii", id);
-  //console.log(name, " this is the id");
+
   try {
-    // const result = await db.collection("StationData").find().toArray();
-    // console.log(result, "this is the result");
-  } catch (err) {}
+    const result = await db.collection("StationData").find().toArray();
+
+    res.status(200).json({
+      status: 200,
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({ status: 400, message: err.message });
+  } finally {
+    client.close();
+  }
+};
+
+
+////
+//* ADD FAVOURITE STATION
+const addFavoriteStation = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("data-name");
+
+  const { _id, sub } = req.body;
+
+  const queryObj = {
+    sub,
+  };
+
+  const updateObj = {
+    $push: { favourite: _id },
+  };
+
+  try {
+    const updateResult = await db
+      .collection("users")
+      .updateOne(queryObj, updateObj);
+
+    const { acknowledged, modifiedCount } = updateResult;
+    console.log(acknowledged, modifiedCount);
+    if (acknowledged && modifiedCount > 0) {
+      return res
+        .status(200)
+        .json({ message: `Added Station id to favourites`, data: null });
+    } else {
+      return res
+        .status(400)
+        .json({ message: `Station is already added `, data: null });
+    }
+  } catch (err) {
+    res.status(400).json({ status: 400, message: err.message });
+  } finally {
+    client.close();
+  }
 };
 
 module.exports = {
@@ -165,5 +253,7 @@ module.exports = {
   getSingleGasStation,
   postReview,
   deletePost,
-  getBestPrice,
+  updatePrice,
+  getAllGasStation,
+  addFavoriteStation,
 };

@@ -9,7 +9,9 @@ const {
   getSingleGasStation,
   postReview,
   deletePost,
-  getBestPrice,
+  updatePrice,
+  getAllGasStation,
+  addFavoriteStation
 } = require("./handlers");
 
 const { createUser } = require("./handlers/users/createUser");
@@ -30,7 +32,11 @@ express()
   .post("/post/createPost", postReview)
   .delete("/post/delete/:id", deletePost)
 
-  .post("/bestPrice/:id", getBestPrice)
+  .patch("/bestPrice", updatePrice)
+
+  .get("/getAllGasStation",getAllGasStation )
+
+  .patch("/user/favoriteStations/add", addFavoriteStation)
 
   .post("/user", createUser)
   .get("/user/:sub", getUser)
