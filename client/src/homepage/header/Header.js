@@ -3,14 +3,19 @@ import styled from "styled-components";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   return (
     <HeaderContainer>
-      <LogoLink to={"/"}>
-        <Logo src="/asset/logo/gasGuzzler2.PNG"/>
+      <LogoLink to={"/homepage"}>
+        <Logo src="/asset/logo/gasGuzzler2.PNG" />
       </LogoLink>
+      <div>
+        <SearchBar />
+      </div>
+
       <div>
         <LoginButton />
         <LogoutButton />
@@ -32,12 +37,11 @@ const HeaderContainer = styled.div`
   height: 58px;
 `;
 const Logo = styled.img`
-
- width: 150px;
- height: 150px;
- position: absolute;
- top: -46px;
- left: 17px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -46px;
+  left: 17px;
 `;
 const LogoLink = styled(Link)`
   text-decoration: none;
@@ -50,7 +54,7 @@ const ProfileButton = styled.button`
   border-radius: 5px;
 
   background: #92b5bf;
-  color: #161B21;
+  color: #161b21;
   text-decoration: none;
   font-size: 1rem;
   height: 2.3rem;

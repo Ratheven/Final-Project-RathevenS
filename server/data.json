@@ -25,6 +25,29 @@
   {
     "name": "Shell",
     "logo": "/asset/shell.jpg",
+    "address": "5285 Henri-Bourassa Blvd W, Saint-Laurent, Quebec H4R 1B7 ",
+    "gasPrice": "1.50",
+    "cordinates": [-73.71113, 45.52076],
+    "review": [
+      {
+        "displayPic": "/asset/profilePic/catFace.jpeg",
+        "displayName": "Yankees",
+        "posted": "jan 19 2010",
+        "post": "Its a gas station. The car wash uses brush and you drive your car onto a track and put the car in neutral. The car wash is fast so even if there is a line up, the line moves fast. ",
+        "stars": 4
+      },
+      {
+        "displayPic": "/asset/profilePic/car.jpeg",
+        "displayName": "Rony",
+        "posted": "jan 06 2018",
+        "post": "This location has good service and a store to buy the basics. However, Gas is so expensive, but it's expensive everywhere because of the sanctions on Russia. Time to find a peace deal as over $2 dollars a litre is crazy. ",
+        "stars": 5
+      }
+    ]
+  },
+  {
+    "name": "Shell",
+    "logo": "/asset/shell.jpg",
     "address": "3800 Queen Mary Rd, Montreal, Quebec H3V 1H6 ",
     "gasPrice": "1.50",
     "cordinates": [-73.618, 45.49198],
@@ -83,6 +106,36 @@
     ]
   },
   {
+    "name": "Ultramar",
+    "logo": "/asset/ultramar.png",
+    "address": "5872 Bd Léger, Montréal-Nord, QC H1G 5X5",
+    "gasPrice": "1.63",
+    "cordinates": [-73.63091, 45.61359],
+    "review": [
+      {
+        "displayPic": "/asset/profilePic/catFace.jpeg",
+        "displayName": "MaWillywonkar0y",
+        "posted": "Feb 12 2020",
+        "post": "face masks or face coverings are allowed by law. the worker there denied service saying that my hoodie on my face isn't allowed twisting the law mandate. ",
+        "stars": 2
+      },
+      {
+        "displayPic": "/asset/profilePic/car.jpeg",
+        "displayName": "Robert",
+        "posted": "Oct 9 2021",
+        "post": "It’s better not to go there early in the morning since the gas is really over priced, #Spend wisely! ",
+        "stars": 1
+      },
+      {
+        "displayPic": "/asset/profilePic/bush.jpeg",
+        "displayName": "Jeramy",
+        "posted": "Dec 01 2022",
+        "post": "Just like any other gas station, pretty decently bad",
+        "stars": 2
+      }
+    ]
+  },
+  {
     "displayPic": "/asset/profilePic/car.jpeg",
     "name": "Ultramar",
     "logo": "/asset/ultramar.png",
@@ -117,8 +170,24 @@
   {
     "name": "Esso",
     "logo": "/asset/esso.jpg",
+    "address": "21125 Sainte Marie Rd, Sainte-Anne-De-Bellevue, Quebec H9X 3Y7 ",
+    "gasPrice": "1.56",
+    "cordinates": [-73.919861, 45.42828],
+    "review": [
+      {
+        "displayPic": "/asset/profilePic/ichigo.jpeg",
+        "displayName": "Rony",
+        "posted": "jan 19 2017",
+        "post": "awesomeee. ",
+        "stars": 5
+      }
+    ]
+  },
+  {
+    "name": "Esso",
+    "logo": "/asset/esso.jpg",
     "address": "9187 Bd de l'Acadie, Montréal, QC H4N 3K1 ",
-    "gasPrice": "1.50",
+    "gasPrice": "1.59",
     "cordinates": [-73.65556, 45.53304],
     "review": [
       {
@@ -179,6 +248,22 @@
         "displayName": "Ravi",
         "posted": "Mar 16 2022",
         "post": "Nice and clean newly renovated gas station with many pumps. The only bad thing about it is the price of gas but gas is expensive everywhere!!",
+        "stars": 4
+      }
+    ]
+  },
+  {
+    "name": "Couche-Tard",
+    "logo": "/asset/coucheTard.png",
+    "address": "106 Dorset St, Baie-D'Urfe, Quebec H9X 2Z6",
+    "gasPrice": "1.60",
+    "cordinates": [-73.92028, 45.41375],
+    "review": [
+      {
+        "displayPic": "/asset/profilePic/bush.jpeg",
+        "displayName": "Ravi",
+        "posted": "Mar 16 2022",
+        "post": "Convenient but the shop inside is very small.",
         "stars": 4
       }
     ]

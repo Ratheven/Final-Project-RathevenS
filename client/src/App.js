@@ -1,31 +1,32 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Authentication from "./authentication/Authentication";
 import GasStationDetail from "./gasStationDetail/GasStationDetail";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./homepage/header/Header";
 import Homepage from "./homepage/Homepage";
 import Profile from "./homepage/header/Profile";
+import Hero from "./Hero";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <Header />
 
       <Switch>
         <Route exact path="/">
+          <Hero />
+        </Route>
+        <Route exact path="/homepage">
+          <Header />
           <Homepage />
         </Route>
 
-        <Route exact path="/login">
-          <Authentication />
-        </Route>
-
         <Route path="/gasStation/:id">
-          <GasStationDetail  />
+          <Header />
+          <GasStationDetail />
         </Route>
         <Route path="/profile">
-          <Profile/>
+          <Header />
+          <Profile />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -22,7 +22,7 @@ const FilterBar = ({ setFilter }) => {
             value="Ultramar"
             onChange={(e) => setFilter(e.target.value)}
           />
-          <label>Ultramaur</label>
+          <label>Ultramar</label>
         </InputWrapper>
         <InputWrapper>
           <input
@@ -65,6 +65,7 @@ const Filter = styled.h3`
 `;
 
 const FilteredForm = styled.form`
+background-color: white;
   margin: 20px 0 0 20px;
   border: 1px solid black;
   border-radius: 15px;
@@ -72,6 +73,7 @@ const FilteredForm = styled.form`
   block-size: fit-content;
   width: 208px;
   padding: 15px;
+  
 `;
 
 const InputWrapper = styled.div`

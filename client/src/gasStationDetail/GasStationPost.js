@@ -16,7 +16,6 @@ const GasStationPost = ({ id, setPosted, rating, setRating }) => {
   const postId = uuid.v4();
 
   const handleSubmit = () => {
-    // console.log(user, "this is the rating");
     fetch("/post/createPost", {
       method: "POST",
       headers: {
@@ -31,7 +30,7 @@ const GasStationPost = ({ id, setPosted, rating, setRating }) => {
         posted: time,
         post: post,
         stars: rating,
-        displayPic: user.picture
+        displayPic: user.picture,
       }),
     }).then(setPosted((prev) => !prev));
     setPost("");
@@ -40,9 +39,9 @@ const GasStationPost = ({ id, setPosted, rating, setRating }) => {
 
   return (
     <PostWrapper>
-    <SpanKey>
-              Rate Your Experience<RequireSpan> (required)</RequireSpan>
-            </SpanKey>
+      <SpanKey>
+           Rate Your Experience<RequireSpan> (required)</RequireSpan>
+      </SpanKey>
       <form
         type="submit"
         onSubmit={(event) => {
@@ -53,18 +52,20 @@ const GasStationPost = ({ id, setPosted, rating, setRating }) => {
       >
         <Post
           type="text"
-          placeholder="Highlight your experience"
+          placeholder=" Highlight your experience"
           value={post}
           onChange={(e) => setPost(e.target.value)}
         />
-        <PostButton type="submit">Post</PostButton>
+        <ButtonDiv>
+          <PostButton type="submit">Post</PostButton>
+        </ButtonDiv>
       </form>
     </PostWrapper>
   );
 };
 const PostWrapper = styled.div`
-margin-top: 20px;
-`
+  margin-top: 20px;
+`;
 const SpanKey = styled.span`
   font-weight: bold;
 `;
@@ -72,23 +73,37 @@ const RequireSpan = styled.span`
   color: gray;
   font-size: 13px;
 `;
-const Post = styled.input`
-margin-top: 10px;
+const Post = styled.textarea`
+  margin-top: 10px;
   height: 100px;
   width: 70vw;
   margin-left: 2px;
   border-radius: 17px;
- 
+
   &:focus {
     border: 4px solid blue;
-   
   }
- 
+`;
+const ButtonDiv = styled.div`
+
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const PostButton = styled.button`
-  margin-left: -50px;
-  /* visibility: hidden; */
-  border: none;
+border: none;
+  border-radius: 5px;
+  background: #92b5bf;
+  color: #161B21;
+  text-decoration: none;
+  font-size: 1rem;
+  height: 1.7rem;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  padding: 0 20px;
+  &:hover {
+    background-color: #ffffff;
+    color: #00515c;
+  }
 `;
 export default GasStationPost;

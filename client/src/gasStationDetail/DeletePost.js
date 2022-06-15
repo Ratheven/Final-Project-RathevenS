@@ -1,5 +1,7 @@
-const DeletPost = ({ id, setPosted, _id }) => {
+import { AiFillDelete } from "react-icons/ai";
+import styled from "styled-components";
 
+const DeletPost = ({ id, setPosted, _id }) => {
   const handleDelete = () => {
     fetch(`/post/delete/${id}`, {
       method: "DELETE",
@@ -14,14 +16,20 @@ const DeletPost = ({ id, setPosted, _id }) => {
   };
 
   return (
-    <button
+  
+    <Garbage
       onClick={() => {
         handleDelete();
       }}
     >
-      delete
-    </button>
+      <AiFillDelete style={{ width: "30px", height: "25px" }} />
+    </Garbage>
   );
 };
+
+const Garbage = styled.p`
+  margin: 3px 5px 0 0;
+  cursor: pointer;
+`;
 
 export default DeletPost;
