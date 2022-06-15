@@ -17,8 +17,7 @@ const GasStationDetail = () => {
   const [status, setStatus] = useState("loading");
   const [posted, setPosted] = useState(false);
   const [rating, setRating] = useState(null);
-  let array = [];
-  let sum = 0;
+ 
   useEffect(() => {
     if (id) {
       fetch(`/api/gasStation/${id}`)
@@ -31,10 +30,7 @@ const GasStationDetail = () => {
     }
   }, [posted]);
 
-  const handleStarAvg = (star) => {
-    sum += star;
-    array.push(star);
-  };
+ 
 
   return (
     <div>
@@ -85,7 +81,7 @@ const GasStationDetail = () => {
               return (
                 <PostContainer key={index}>
                   <ReviewHeader>
-                    {handleStarAvg(post.stars)}
+                   
 
                     <Wrapper>
                       <div>

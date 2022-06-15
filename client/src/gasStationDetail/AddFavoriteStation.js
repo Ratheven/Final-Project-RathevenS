@@ -4,11 +4,11 @@ import { AiOutlineStar } from "react-icons/ai";
 import styled from "styled-components";
 
 const AddFavoriteStation = ({ _id }) => {
-  const { user, isAuthenticated } = useAuth0();
-  const [status, setStatus] = useState(false);
+  const { user,  } = useAuth0();
+ 
 
   const handleFavorite = () => {
-    setStatus(true);
+ 
 
     fetch("/user/favoriteStations/add", {
       method: "PATCH",

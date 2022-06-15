@@ -9,7 +9,7 @@ const Homepage = () => {
   const [gasStation, setGasStation] = useState();
   const [status, setStatus] = useState("loading");
   const [filter, setFilter] = useState("Reset");
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     fetch(`/api/gasStation?filter=${filter}`)

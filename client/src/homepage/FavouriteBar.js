@@ -5,7 +5,7 @@ import styled from "styled-components";
 const FavouriteBar = () => {
   const [favouriteStation, setFavouriteStation] = useState();
   const [status, setStatus] = useState("loading");
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     if (isAuthenticated) {
