@@ -1,16 +1,15 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import GasStationDetail from "./gasStationDetail/GasStationDetail";
+import GasStationDetailPage from "./gasStationDetail/GasStationDetailPage";
 import GlobalStyles from "./GlobalStyles";
-import Header from "./homepage/header/Header";
+import Header from "./header/Header";
 import Homepage from "./homepage/Homepage";
-import Profile from "./homepage/header/Profile";
-import Hero from "./Hero";
+import Profile from "./header/Profile";
+import Hero from "./heroPage/Hero";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
-
       <Switch>
         <Route exact path="/">
           <Hero />
@@ -19,10 +18,9 @@ function App() {
           <Header />
           <Homepage />
         </Route>
-
         <Route path="/gasStation/:id">
           <Header />
-          <GasStationDetail />
+          <GasStationDetailPage />
         </Route>
         <Route path="/profile">
           <Header />

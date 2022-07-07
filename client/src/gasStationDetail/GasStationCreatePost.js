@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const uuid = require("uuid");
 
-const GasStationPost = ({ id, setPosted, rating, setRating }) => {
+const GasStationCreatePost = ({ id, setPosted, rating, setRating }) => {
   const [post, setPost] = useState("");
 
   const { user } = useAuth0();
@@ -106,4 +106,4 @@ border: none;
     color: #00515c;
   }
 `;
-export default GasStationPost;
+export default GasStationCreatePost;

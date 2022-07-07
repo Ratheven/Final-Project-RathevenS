@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { BsPencilFill } from 'react-icons/bs';
+import { BsPencilFill } from "react-icons/bs";
 
 const UpdateGas = ({ id, setPosted }) => {
   const [price, setPrice] = useState();
@@ -35,20 +35,22 @@ const UpdateGas = ({ id, setPosted }) => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-        <Button type="submit"><BsPencilFill/></Button>
+        <Button type="submit">
+          <BsPencilFill />
+        </Button>
       </form>
     </>
   );
 };
 
 const Input = styled.input`
-width: 130px;
-border-radius: 8px;
-margin-top: 8px;
-`
+  width: 130px;
+  border-radius: 8px;
+  margin-top: 8px;
+`;
 const Button = styled.button`
- border: none;
- background: white;
-`
+  border: none;
+  background: white;
+`;
 
 export default UpdateGas;

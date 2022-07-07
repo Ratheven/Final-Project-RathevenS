@@ -4,16 +4,20 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
 const MiniMap = ({ gasStation }) => {
+  //viewport information we need to render the map//
   const [viewport, setViewport] = useState({
+    container: "map", // container ID
     latitude: 45.508888,
     longitude: -73.561668,
     width: "100vw",
-    height: "89.8vh",
-    zoom: 8.7,
+    height: "100vh",
+    zoom: 9.2,
   });
+  //navigates to the gas station detail page//
   let history = useHistory();
+  //after clicking on a location icon, useState save that particular gas station //
   const [selectedStation, setSelectedStation] = useState(null);
-
+  //press escape to cancel popup//
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -25,9 +29,15 @@ const MiniMap = ({ gasStation }) => {
       window.removeEventListener("keydown", listener);
     };
   }, []);
-
+  //still working on the current position//
+  let current = [];
+  const successLocation = (position) => {
+    current = [position.coords.longitude, position.coords.latitude];
+  };
+  const errorLocation = () => {};
   return (
     <div>
+      {/* Render the map by grabing our viewport, .env and map style */}
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -36,8 +46,17 @@ const MiniMap = ({ gasStation }) => {
           setViewport(viewport);
         }}
       >
+        {navigator.geolocation.getCurrentPosition(
+          successLocation,
+          errorLocation,
+          {
+            enableHighAccuracy: true,
+          }
+        )}
+        {/* Render the data to show on the map which is being passed down by the homepage */}
         {gasStation.map((gas, index) => {
           return (
+            // Marker for each individual gas station
             <Marker
               key={index}
               latitude={gas.cordinates[1]}
@@ -48,13 +67,9 @@ const MiniMap = ({ gasStation }) => {
                   e.preventDefault();
                   setSelectedStation(gas);
                 }}
+                className="animate__bounce"
               >
-                {/* {if(gas.name=== "Couche-Tard"){
-                  return(
-
-                    <img src="/asset/coucheTard.png"/>
-                  )
-                }} */}
+                {/* display logo to represent each station */}
                 {gas.name === "Couche-Tard" ? (
                   <Logo src="/asset/coucheTard.png" />
                 ) : gas.name === "Esso" ? (
@@ -68,7 +83,7 @@ const MiniMap = ({ gasStation }) => {
             </Marker>
           );
         })}
-
+        {/* once the logo is clicked we grab the data from our useState */}
         {selectedStation && (
           <Popup
             latitude={selectedStation.cordinates[1]}
@@ -79,8 +94,11 @@ const MiniMap = ({ gasStation }) => {
           >
             <div>
               <PopupHeader>
+                {/* display logo to represent each station */}
                 {selectedStation.name === "Couche-Tard" ? (
-                  <Logo src="/asset/coucheTard.png" />
+                  <p className="animate__bounce">
+                    <Logo src="/asset/coucheTard.png" />
+                  </p>
                 ) : selectedStation.name === "Esso" ? (
                   <Logo src="/asset/esso.jpg" />
                 ) : selectedStation.name === "Ultramar" ? (
@@ -103,6 +121,7 @@ const MiniMap = ({ gasStation }) => {
                 </KeyValue>
               </div>
               <PopupButton>
+                {/* Once you click on either button on the popup it redirects you to the gaz station detail page */}
                 <Button
                   onClick={() =>
                     history.push(`/gasStation/${selectedStation._id}`)

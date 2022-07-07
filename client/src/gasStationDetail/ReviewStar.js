@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
-const Star = ({ stars }) => {
-  const [hover, setHover] = useState(null);
+const ReviewStar = ({ stars }) => {
   return (
     <StarWrapper>
       {[...Array(5)].map((star, index) => {
@@ -29,4 +27,4 @@ const StarWrapper = styled.div`
   
 `;
 
-export default Star;
+export default ReviewStar;

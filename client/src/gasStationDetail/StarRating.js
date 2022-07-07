@@ -6,6 +6,10 @@ const StarRating = ({ setRating, rating }) => {
   const [hover, setHover] = useState(null);
   //   const ratingValue=0
   return (
+    <>
+       <SpanKey>
+              Rate Your Experience<RequireSpan> (required)</RequireSpan>
+            </SpanKey>
     <StarWrapper>
       {[...Array(5)].map((star, index) => {
         const ratingValue = index + 1;
@@ -23,11 +27,12 @@ const StarRating = ({ setRating, rating }) => {
               size={40}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
-            />
+              />
           </label>
         );
       })}
     </StarWrapper>
+      </>
   );
 };
 const StarInput = styled.input`
@@ -36,5 +41,12 @@ const StarInput = styled.input`
 const StarWrapper = styled.div`
   
 
+`;
+const SpanKey = styled.span`
+  font-weight: bold;
+`;
+const RequireSpan = styled.span`
+  color: gray;
+  font-size: 13px;
 `;
 export default StarRating;
