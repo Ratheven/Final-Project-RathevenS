@@ -15,6 +15,7 @@ const Homepage = () => {
   //Auth0//
   const { user, isAuthenticated } = useAuth0();
   //grab data from the backend//
+
   useEffect(() => {
     fetch(`/api/gasStation?filter=${filter}`)
       .then((res) => res.json())
@@ -25,6 +26,7 @@ const Homepage = () => {
         setStatus("idle");
       });
   }, [filter]);
+
   //Post a new user//
   useEffect(() => {
     if (isAuthenticated) {

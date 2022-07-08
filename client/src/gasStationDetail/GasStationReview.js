@@ -4,10 +4,12 @@ import ReviewStar from "./ReviewStar";
 import DeletPost from "./DeletePost";
 
 const GasStationReview = ({ selectedStation, id, setPosted }) => {
+  //auth0
   const { user, isAuthenticated } = useAuth0();
   return (
     <>
       <Reviews>Recent Reviews</Reviews>
+      {/* map throught the data that we are recieving through props and display the information*/}
       {selectedStation.review.map((post, index) => {
         return (
           <PostContainer key={index}>
@@ -21,11 +23,11 @@ const GasStationReview = ({ selectedStation, id, setPosted }) => {
                   <Date>{post.posted}</Date>
                 </div>
               </Wrapper>
+              {/* if the user email and the post email match. The delete button will appear */}
               {isAuthenticated && post.email === user.email && (
                 <DeletPost _id={id} id={post.id} setPosted={setPosted} />
               )}
             </ReviewHeader>
-
             <ReviewStar stars={post.stars} />
             <Post>{post.post}</Post>
           </PostContainer>

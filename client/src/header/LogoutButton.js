@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const LogoutButton = () => {
   const { logout, isAuthenticated } = useAuth0();
-
+  //if isAuthenticated is true the logOut button will appear//
   return (
     isAuthenticated && (
       <LogOut onClick={() => logout({ returnTo: window.location.origin })}>
@@ -14,6 +14,7 @@ const LogoutButton = () => {
   );
 };
 const LogOut = styled.button`
+  font-size: 1.2rem;
   height: 2.3rem;
   color: white;
   background: none;
