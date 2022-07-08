@@ -2,7 +2,9 @@ import { AiFillDelete } from "react-icons/ai";
 import styled from "styled-components";
 
 const DeletPost = ({ id, setPosted, _id }) => {
+  
   const handleDelete = () => {
+    //Delete post by passing the id as a param
     fetch(`/post/delete/${id}`, {
       method: "DELETE",
       headers: {
@@ -12,6 +14,7 @@ const DeletPost = ({ id, setPosted, _id }) => {
       body: JSON.stringify({
         _id: _id,
       }),
+      //changes the previous post to the opposite boolean
     }).then(setPosted((prev) => !prev));
   };
 
@@ -22,6 +25,7 @@ const DeletPost = ({ id, setPosted, _id }) => {
         handleDelete();
       }}
     >
+      {/* React Icon */}
       <AiFillDelete style={{ width: "30px", height: "25px" }} />
     </Garbage>
   );

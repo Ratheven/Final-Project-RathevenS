@@ -9,13 +9,20 @@ import GasStationDescription from "./GasStationDescription";
 import GasStationReview from "./GasStationReview";
 
 const GasStationDetailPage = () => {
+  //grab isAuthenticated from Auth0
   const { isAuthenticated } = useAuth0();
+  //grab gas station id from the URL
   const { id } = useParams();
+  //store the specific gas station 
   const [selectedStation, setSelectedStation] = useState();
+  //status
   const [status, setStatus] = useState("loading");
+  //we use this to trigger the useEffect
   const [posted, setPosted] = useState(false);
+  //we use this to store the star rating value
   const [rating, setRating] = useState(null);
-
+  
+  //we fetch the data by passing the id as a params to the backend
   useEffect(() => {
     if (id) {
       fetch(`/api/gasStation/${id}`)
@@ -29,13 +36,16 @@ const GasStationDetailPage = () => {
 
   return (
     <>
+      {/* if status is loading produce the react Icon */}
       {status === "loading" ? (
         <CircularWrapper>
           <CircularProgress />
         </CircularWrapper>
       ) : (
+        // if status is idle produce the following
         <DetailContainer>
           <DetailWrapper>
+            {/* the description of the specific gas station */}
             <GasStationDescription
               selectedStation={selectedStation}
               isAuthenticated={isAuthenticated}
@@ -45,10 +55,12 @@ const GasStationDetailPage = () => {
           </DetailWrapper>
           <StarWrapper>
             <RatingDiv>
+              {/* rating star system */}
               <StarRating setRating={setRating} rating={rating} />
             </RatingDiv>
           </StarWrapper>
           <div>
+            {/* create a post  */}
             {isAuthenticated && (
               <GasStationCreatePost
                 id={id}
@@ -57,6 +69,7 @@ const GasStationDetailPage = () => {
                 setRating={setRating}
               />
             )}
+            {/* all the reviews in the specific gas station */}
             <GasStationReview
               selectedStation={selectedStation}
               id={id}

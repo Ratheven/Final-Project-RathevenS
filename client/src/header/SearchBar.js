@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-
 import { useHistory } from "react-router-dom";
 
 const SearchBar = () => {
@@ -68,7 +67,6 @@ const SearchBar = () => {
             })}
           </InputDropdown>
         )}
-
       </Search>
     );
   }
@@ -77,7 +75,8 @@ const Wrapper = styled.div`
   border: 1px solid black;
 `;
 const Address = styled.div`
-  font-size: 10px;
+  padding-left: 10px;
+  font-size: 14px;
   padding-bottom: 5px;
 `;
 const StationValue = styled.div`
@@ -100,19 +99,23 @@ const Input = styled.input`
   padding: 15px;
   height: 30px;
   width: 300px;
+  position: relative;
+  left: 2px;
   &:focus {
+    height: 25px;
     border: 2px solid blue;
   }
 `;
 const Search = styled.div`
   width: 100%;
   margin-left: 70px;
+  position: relative;
+  top: -7px;
 `;
 const SearchInput = styled.div`
   margin-top: 10px;
   display: flex;
 `;
-
 
 const SearchIcon = styled.div`
   height: 30px;

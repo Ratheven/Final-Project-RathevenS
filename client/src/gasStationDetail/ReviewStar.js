@@ -23,8 +23,6 @@ const ReviewStar = ({ stars }) => {
 const StarInput = styled.input`
   display: none;
 `;
-const StarWrapper = styled.div`
-  
-`;
+const StarWrapper = styled.div``;
 
 export default ReviewStar;

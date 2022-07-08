@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { BsPencilFill } from "react-icons/bs";
 
 const UpdateGas = ({ id, setPosted }) => {
+  //this stores the value of gas that we change through the input at the bottom
   const [price, setPrice] = useState();
-
+  
+  //oatch will update the data of the gas station to have the new gas price
   const updatePrice = () => {
     fetch("/bestPrice", {
       method: "PATCH",
@@ -16,6 +18,7 @@ const UpdateGas = ({ id, setPosted }) => {
         _id: id,
         gasPrice: price,
       }),
+      //this will rerender the page 
     }).then(setPosted((prev) => !prev));
   };
 
@@ -36,6 +39,7 @@ const UpdateGas = ({ id, setPosted }) => {
           onChange={(e) => setPrice(e.target.value)}
         />
         <Button type="submit">
+          {/* React Icon */}
           <BsPencilFill />
         </Button>
       </form>

@@ -6,19 +6,25 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
+  //auth0//
   const { isAuthenticated } = useAuth0();
   return (
     <HeaderContainer>
+      {/* navigate to homepage through logo*/}
       <LogoLink to={"/homepage"}>
         <Logo src="/asset/logo/gasGuzzler2.PNG" />
       </LogoLink>
+      {/* allow you to search for a specific gas station */}
       <div>
         <SearchBar />
       </div>
 
       <div>
+        {/* lets you login but dissapears when you are already logged in */}
         <LoginButton />
+        {/* lets you log out when if you are logged in */}
         <LogoutButton />
+        {/* if you are logged in, there will be a profile button which will navigate you to the profile page */}
         {isAuthenticated && (
           <ProfileLink to={"/profile"}>
             <ProfileButton>Profile</ProfileButton>

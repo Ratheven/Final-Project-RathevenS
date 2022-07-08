@@ -1,15 +1,15 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import styled from "styled-components";
 
+//get unique _id from GasStationDetailPage//
 const AddFavoriteStation = ({ _id }) => {
+  
+  //auth0 -user information//
   const { user,  } = useAuth0();
- 
 
+  //This fetch will update the user profile and add the gas station id in a array
   const handleFavorite = () => {
- 
-
     fetch("/user/favoriteStations/add", {
       method: "PATCH",
       headers: {
@@ -25,6 +25,7 @@ const AddFavoriteStation = ({ _id }) => {
 
   return (
     <Button onClick={() => handleFavorite()}>
+      {/* React Icon */}
       <AiOutlineStar />
       Favourite
     </Button>

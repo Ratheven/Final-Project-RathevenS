@@ -1,10 +1,12 @@
 import styled from "styled-components";
-
+//receive setFilter from homepage//
 const FilterBar = ({ setFilter }) => {
   return (
     <>
+      {/* form */}
       <FilteredForm>
         <Filter>Filter by Company </Filter>
+        {/* each radio input corresponds to a particular gas station */}
         <InputWrapper>
           <input
             type="radio"
@@ -12,7 +14,7 @@ const FilterBar = ({ setFilter }) => {
             value="Shell"
             onChange={(e) => setFilter(e.target.value)}
           />
-          <label>Shell</label>
+          <Label>Shell</Label>
         </InputWrapper>
 
         <InputWrapper>
@@ -22,7 +24,7 @@ const FilterBar = ({ setFilter }) => {
             value="Ultramar"
             onChange={(e) => setFilter(e.target.value)}
           />
-          <label>Ultramar</label>
+          <Label>Ultramar</Label>
         </InputWrapper>
         <InputWrapper>
           <input
@@ -31,7 +33,7 @@ const FilterBar = ({ setFilter }) => {
             value="Esso"
             onChange={(e) => setFilter(e.target.value)}
           />
-          <label>Esso</label>
+          <Label>Esso</Label>
         </InputWrapper>
         <InputWrapper>
           <input
@@ -40,16 +42,8 @@ const FilterBar = ({ setFilter }) => {
             value="Couche-Tard"
             onChange={(e) => setFilter(e.target.value)}
           />
-          <label>Couche-Tard</label>
+          <Label>Couche-Tard</Label>
         </InputWrapper>
-        {/* <input
-          type="radio"
-          name="gas"
-          value="Reset"
-          onChange={(e) => setFilter(e.target.value)}
-        />
-        <label>Reset filter</label> */}
-
         <ResetButton value="Reset" onClick={(e) => setFilter(e.target.value)}>
           Reset Filter
         </ResetButton>
@@ -57,23 +51,24 @@ const FilterBar = ({ setFilter }) => {
     </>
   );
 };
-
+const Label = styled.label`
+  font-size: 22px;
+`;
 const Filter = styled.h3`
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  font-size: 24px;
 `;
 
 const FilteredForm = styled.form`
-background-color: white;
+  background-color: white;
   margin: 20px 0 0 20px;
   border: 1px solid black;
   border-radius: 15px;
-  width: fit-content;
   block-size: fit-content;
-  width: 208px;
+  width: 270px;
   padding: 15px;
-  
 `;
 
 const InputWrapper = styled.div`
@@ -83,14 +78,14 @@ const InputWrapper = styled.div`
 const ResetButton = styled.button`
   border: none;
   border-radius: 5px;
-
   background: #92b5bf;
   color: #161b21;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
   height: 2.3rem;
   margin-right: 20px;
-  margin-left: 20px;
+  margin-left: 20%;
+  margin: 20px 20px 0 20%;
   transition: all 300ms ease-in-out;
   cursor: pointer;
   padding: 0 20px;
