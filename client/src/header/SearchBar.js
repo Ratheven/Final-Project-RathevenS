@@ -23,7 +23,7 @@ const SearchBar = () => {
       setFilteredStations([]);
     }
   };
-
+  //get all the gas station for the search bar
   useEffect(() => {
     fetch("/getAllGasStation")
       .then((res) => res.json())

@@ -12,6 +12,10 @@ const Profile = () => {
   //grab user information from Auth0 and displaying it//
   return (
     isAuthenticated && (
+      <>
+        <WelcomeWrapper>
+          <h1>Welcome {user.name}</h1>
+        </WelcomeWrapper>
       <Container>
         <Wrapper>
           <Img src={user.picture} alt={user.name} />
@@ -29,9 +33,17 @@ const Profile = () => {
           </Key>
         </Wrapper>
       </Container>
+      </>
     )
   );
 };
+const WelcomeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  font-size: 1.9rem;
+`
 const Value = styled.span`
   font-weight: bold;
 `;
@@ -45,7 +57,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 60px;
+  position: relative;
+  top: 4px;
 `;
 const Wrapper = styled.div`
   border: 1px solid black;
