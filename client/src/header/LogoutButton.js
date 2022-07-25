@@ -20,6 +20,7 @@ const LogOut = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  
 `;
 
 export default LogoutButton;

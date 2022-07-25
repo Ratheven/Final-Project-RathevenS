@@ -10,7 +10,7 @@ const MiniMap = ({ gasStation }) => {
     latitude: 45.508888,
     longitude: -73.561668,
     width: "100vw",
-    height: "100vh",
+    height: "91.7vh",
     zoom: 9.2,
   });
   //navigates to the gas station detail page//
