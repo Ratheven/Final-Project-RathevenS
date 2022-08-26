@@ -31,7 +31,7 @@ const FavouriteBar = () => {
           return (
             <Wrapper key={index}>
               {/* if favouriteStation is empty it will display add a gas station */}
-              {favouriteStation.length === [] ? (
+              {favouriteStation.length === 0 ? (
                 <div>Add a Gas Station</div>
               ) : (
                 <>

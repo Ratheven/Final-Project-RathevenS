@@ -13,7 +13,7 @@ const GasStationDetailPage = () => {
   const { isAuthenticated } = useAuth0();
   //grab gas station id from the URL
   const { id } = useParams();
-  //store the specific gas station 
+  //store the specific gas station
   const [selectedStation, setSelectedStation] = useState();
   //status
   const [status, setStatus] = useState("loading");
@@ -21,7 +21,7 @@ const GasStationDetailPage = () => {
   const [posted, setPosted] = useState(false);
   //we use this to store the star rating value
   const [rating, setRating] = useState(null);
-  
+
   //we fetch the data by passing the id as a params to the backend
   useEffect(() => {
     if (id) {
@@ -56,7 +56,9 @@ const GasStationDetailPage = () => {
           <StarWrapper>
             <RatingDiv>
               {/* rating star system */}
-              <StarRating setRating={setRating} rating={rating} />
+              {isAuthenticated && (
+                <StarRating setRating={setRating} rating={rating} />
+              )}
             </RatingDiv>
           </StarWrapper>
           <div>
