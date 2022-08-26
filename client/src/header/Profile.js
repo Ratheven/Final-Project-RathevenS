@@ -6,6 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   //if autho0 is still loading it will produce the react Icon//
+  console.log(user, "hello");
   if (isLoading) {
     return <CircularProgress />;
   }
@@ -16,23 +17,23 @@ const Profile = () => {
         <WelcomeWrapper>
           <h1>Welcome {user.name}</h1>
         </WelcomeWrapper>
-      <Container>
-        <Wrapper>
-          <Img src={user.picture} alt={user.name} />
-          <Key>
-            <Value>Name: </Value>
-            {user.name}
-          </Key>
-          <Key>
-            <Value>Email: </Value>
-            {user.email}
-          </Key>
-          <Key>
-            <Value>Nickname: </Value>
-            {user.nickname}
-          </Key>
-        </Wrapper>
-      </Container>
+        <Container>
+          <Wrapper>
+            <Pic src={user.picture} alt={user.name} />
+            <Key>
+              <Value>Name: </Value>
+              {user.name}
+            </Key>
+            <Key>
+              <Value>Email: </Value>
+              {user.email}
+            </Key>
+            <Key>
+              <Value>Nickname: </Value>
+              {user.nickname}
+            </Key>
+          </Wrapper>
+        </Container>
       </>
     )
   );
@@ -43,14 +44,14 @@ const WelcomeWrapper = styled.div`
   align-items: center;
   margin-top: 60px;
   font-size: 1.9rem;
-`
+`;
 const Value = styled.span`
   font-weight: bold;
 `;
 const Key = styled.p`
   margin-top: 5px;
 `;
-const Img = styled.img`
+const Pic = styled.img`
   margin-left: 25%;
 `;
 const Container = styled.div`
